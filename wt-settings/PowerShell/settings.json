@@ -85,6 +85,29 @@
             "brightWhite": "#ffffff",
             "background": "#1e2127",
             "foreground": "#abb2bf"
+        },
+        {
+            "background": "#E6F2CC",
+            "black": "#0C0C0C",
+            "blue": "#0035D1",
+            "brightBlack": "#767676",
+            "brightBlue": "#356CE6",
+            "brightCyan": "#58C2C2",
+            "brightGreen": "#14B80B",
+            "brightPurple": "#B4009E",
+            "brightRed": "#D94451",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#A39F6D",
+            "cursorColor": "#FF0000",
+            "cyan": "#2F7BB5",
+            "foreground": "#000000",
+            "green": "#11940D",
+            "name": "UMU-Light",
+            "purple": "#80168F",
+            "red": "#C50F1F",
+            "selectionBackground": "#DCE301",
+            "white": "#CCCCCC",
+            "yellow": "#917500"
         }
     ],
     // Add custom keybindings to this array.
