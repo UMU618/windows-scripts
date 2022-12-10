@@ -2,7 +2,9 @@
 
 ## [settings.json](settings.json)
 
-"colorScheme": "OneDark"
+"colorScheme": "UMU-Dark"
+"colorScheme": "UMU-Light"
+"schemes": []
 
 ## [Microsoft.PowerShell_profile.ps1](Microsoft.PowerShell_profile.ps1)
 
