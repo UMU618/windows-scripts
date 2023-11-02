@@ -2,7 +2,6 @@ function ArrayEquals([Object[]]$a, [Object[]]$b) {
     $ac = $a.Count
     $bc = $b.Count
     if ($ac -ne $bc) {
-        echo $ac, $bc
         return $false
     }
 
@@ -16,14 +15,20 @@ function ArrayEquals([Object[]]$a, [Object[]]$b) {
 }
 
 $ips = Get-Content .\ip-blacklist.txt | Sort-Object -Unique
+Write-Output "Add:"
 Write-Output $ips
 
 $rule = Get-NetFirewallRule -DisplayName 'BanIP-TCP'
 $af = Get-NetFirewallAddressFilter -AssociatedNetFirewallRule $rule
-$ips += $af.RemoteAddress
-$ips = $ips | Sort-Object -Unique
-$eq = ArrayEquals $ips $af.RemoteAddress
+$old = $af.RemoteAddress | Sort-Object
+Write-Output "Old:"
+Write-Output $old
+
+$ips = ($ips + $old) | Sort-Object -Unique
+Write-Output "New:"
+Write-Output $ips
+$eq = ArrayEquals $ips $old
 "Unchanged?: " + $eq
 if (-not $eq) {
-    Set-NetFirewallAddressFilter -InputObject $af -RemoteAddress $ras
+    Set-NetFirewallAddressFilter -InputObject $af -RemoteAddress $ips
 }
