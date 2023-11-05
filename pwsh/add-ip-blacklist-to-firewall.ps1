@@ -14,7 +14,7 @@ function ArrayEquals([Object[]]$a, [Object[]]$b) {
     return $true
 }
 
-$ips = Get-Content .\ip-blacklist.txt | Sort-Object -Unique
+$ips = Get-Content .\new-ips.txt -Encoding UTF8 | Sort-Object -Unique
 Write-Output "Add:"
 Write-Output $ips
 
@@ -31,4 +31,5 @@ $eq = ArrayEquals $ips $old
 "Unchanged?: " + $eq
 if (-not $eq) {
     Set-NetFirewallAddressFilter -InputObject $af -RemoteAddress $ips
+    Out-File .\ip-blacklist.txt -Encoding utf8 -InputObject $ips
 }

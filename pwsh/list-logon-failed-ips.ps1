@@ -20,4 +20,6 @@ Get-WinEvent -LogName Security -FilterXPath '*[System[band(Keywords,450359962737
         }
     }
 }
-Write-Output 'All IPs:', $ips
+Write-Output 'All IPs for auditing:', $ips
+
+Out-File .\new-ips.txt -Encoding utf8 -InputObject $ips.Keys
