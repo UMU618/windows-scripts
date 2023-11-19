@@ -24,7 +24,7 @@ $old = $af.RemoteAddress | Sort-Object
 Write-Output "Old:"
 Write-Output $old
 
-$ips = ($ips + $old) | Sort-Object -Unique
+$ips = ($old + $ips) | Sort-Object -Unique
 Write-Output "New:"
 Write-Output $ips
 $eq = ArrayEquals $ips $old
